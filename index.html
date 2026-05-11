@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>OMASP 2026 · Guia de Aplicação de Prova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== IDENTIDADE VISUAL OMASP (ESTILO ASSISTENTE) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #041a3a, #0a2f6c);
+            margin: 0;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #0f1a24;
+            border-radius: 28px;
+            border: 1px solid #d32f2f;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        /* HEADER (estilo assistente) */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 47, 108, 0.9);
+            padding: 16px 28px;
+            border-bottom: 1px solid rgba(211, 47, 47, 0.3);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .logo-text span:first-child {
+            color: #ffec9e;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo-text span:last-child {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .title-badge {
+            background: #d32f2f;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        /* conteúdo principal com fundo claro (cards) */
+        .content-wrapper {
+            background: #f9fafc;
+            padding: 2rem 2rem 2rem;
+        }
+
+        /* hero adaptado */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 28px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #d32f2f;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #041a3a, #0a2f6c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #2c3e66;
+            font-weight: 500;
+        }
+
+        .badge-ano {
+            background: #0a2f6c;
+            color: white;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.8rem;
+        }
+
+        /* Sumário (cards estilo assistente) */
+        .sumario {
+            background: white;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e9edf2;
+        }
+
+        .sumario h2 {
+            font-size: 1.6rem;
+            color: #041a3a;
+            border-left: 5px solid #d32f2f;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .sumario-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .sumario-item {
+            background: #f0f2f8;
+            padding: 0.5rem 1.3rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #0a2f6c;
+            transition: all 0.2s;
+            cursor: default;
+            border-left: 2px solid #d32f2f;
+        }
+
+        .sumario-item:hover {
+            background: #d32f2f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* seções */
+        section {
+            margin: 2rem 0;
+            scroll-margin-top: 1rem;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #041a3a;
+            border-left: 6px solid #d32f2f;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.8rem;
+            color: #0a2f6c;
+            display: inline-block;
+            border-bottom: 2px dotted #d32f2f;
+            padding-bottom: 0.2rem;
+        }
+
+        .card-destaque {
+            background: #fff8f0;
+            border-left: 6px solid #d32f2f;
+            padding: 1rem 1.6rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        /* tabelas refinadas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 14px;
+            vertical-align: top;
+        }
+
+        th {
+            background: #eef2fa;
+            color: #041a3a;
+            font-weight: 700;
+        }
+
+        .horario-card {
+            background: #eef2f7;
+            border-radius: 24px;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            margin: 1rem 0;
+            border-left: 4px solid #d32f2f;
+            color: #041a3a;
+        }
+
+        .token-box {
+            background: linear-gradient(135deg, #0f1a24, #0a1118);
+            color: #ffec9e;
+            padding: 1rem 1.5rem;
+            border-radius: 24px;
+            font-family: monospace;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid #d32f2f;
+            margin: 1rem 0;
+        }
+
+        .botao-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #d32f2f;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .botao-link:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+        }
+
+        .grid-dicas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .dica-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.2rem;
+            transition: all 0.2s;
+            border: 1px solid #e9edf2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border-left: 3px solid #d32f2f;
+        }
+
+        .dica-card strong {
+            color: #b71c1c;
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .aviso {
+            background: #ffe9e9;
+            border-left: 5px solid #d32f2f;
+            padding: 0.9rem 1.2rem;
+            border-radius: 18px;
+            margin: 1rem 0;
+            color: #a0241a;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 2px dashed #cddae9;
+            padding: 1.8rem 1rem 0.8rem;
+            font-size: 0.8rem;
+            color: #4a627a;
+        }
+
+        footer a {
+            color: #d32f2f;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .highlight-badge {
+            background: #d32f2f20;
+            border-radius: 40px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #b71c1c;
+        }
+
+        @media (max-width: 780px) {
+            body {
+                padding: 1rem;
+            }
+            .content-wrapper {
+                padding: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .title-badge {
+                white-space: normal;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- CABEÇALHO IDÊNTICO AO ASSISTENTE -->
+    <div class="header">
+        <div class="logo-area">
+            <div class="logo-text">
+                <span>📐 OMASP · GUIA DE APLICAÇÃO</span>
+                <span>Orientações oficiais 2026</span>
+            </div>
+        </div>
+        <div class="title-badge">Fiscalização e Logística</div>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Hero remodelado -->
+        <div class="hero">
+            <h1>🎯 GUIA DE APLICAÇÃO DE PROVA</h1>
+            <div class="sub">Olimpíada de Matemática das Escolas Públicas de São Paulo</div>
+            <div class="badge-ano">Anos Finais (6º ao 9º ano) • Ensino Médio (1ª à 3ª série)</div>
+        </div>
+
+        <!-- Sumário interativo -->
+        <div class="sumario">
+            <h2>📖 Sumário</h2>
+            <div class="sumario-grid">
+                <span class="sumario-item">1. Preparação e Logística</span>
+                <span class="sumario-item">2. Orientações para fiscais</span>
+                <span class="sumario-item">3. Boas práticas na aplicação</span>
+                <span class="sumario-item">4. Resolução de problemas técnicos</span>
+                <span class="sumario-item">5. Diário de Classe: Enturmação</span>
+                <span class="sumario-item">6. Uso do Token</span>
+                <span class="sumario-item">7. Alunos Transferidos</span>
+                <span class="sumario-item">8. Material de Apoio</span>
+            </div>
+        </div>
+
+        <!-- Seção 1 -->
+        <section>
+            <h2>🏫 1. Preparação e Logística Escolar</h2>
+            <h3>⏰ Cronograma – Atenção aos horários!</h3>
+            <p>Escolas com grande número de estudantes podem fazer escalonamento de turmas no mesmo turno, <strong>respeitando integralmente os horários oficiais:</strong></p>
+            <table>
+                <thead>
+                    <tr><th>Turno</th><th>Abertura</th><th>Fechamento</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Manhã</td><td>7:30</td><td>12:30</td></tr>
+                    <tr><td>Tarde</td><td>13:30</td><td>18:30</td></tr>
+                    <tr><td>Noite</td><td>19:00</td><td>23:00</td></tr>
+                </tbody>
+            </table>
+            <div class="aviso">
+                ⚠️ O horário do turno NUNCA pode ser desrespeitado. Caso aconteça, a prova não estará mais disponível.
+            </div>
+            <h3>📅 Fase Estadual – datas e duração</h3>
+            <p><strong>Todos os níveis: 06/08</strong> (respeitar datas por série conforme regulamento).</p>
+            <table>
+                <tr><th>Turno</th><th>Início</th><th>Término</th></tr>
+                <tr><td>Manhã</td><td>09h</td><td>11h00</td></tr>
+                <tr><td>Tarde / Noite</td><td colspan="2">Conforme horário de abertura do turno + 2h de prova</td></tr>
+            </table>
+            <p>⏱️ <strong>Duração recomendada:</strong> até 2 horas.</p>
+        </section>
+
+        <!-- Seção 2 fiscais -->
+        <section>
+            <h2>👩‍🏫 2. Orientações para fiscais de prova</h2>
+            <p><strong>Quem são?</strong> Pessoas responsáveis por acompanhar, supervisionar e garantir o bom andamento. Perfil recomendado: membros do corpo docente, trio gestor. Desaconselhamos professores de Matemática.</p>
+            <div class="grid-dicas">
+                <div class="dica-card"><strong>🔍 Atenção aos detalhes</strong> – Imparcialidade e pontualidade.</div>
+                <div class="dica-card"><strong>⚖️ Senso de responsabilidade</strong> + boa comunicação.</div>
+            </div>
+            <p>✔️ A prova só estará aberta no turno de entrada do estudante. PEIs que iniciam de manhã aplicam obrigatoriamente pela manhã (exceção: segundo grupo no mesmo turno com horário estendido).</p>
+            <h3>📋 Tabela de instruções para fiscais</h3>
+            <table>
+                <thead><tr><th>Boa prática</th><th>Descrição</th></tr></thead>
+                <tbody>
+                    <tr><td>Presença constante</td><td>No mínimo um fiscal obrigatoriamente na sala durante toda aplicação.</td></tr>
+                    <tr><td>Orientar os candidatos</td><td>Informar regras, horários e procedimentos.</td></tr>
+                    <tr><td>Dispositivos eletrônicos</td><td>Celulares desligados e guardados na mochila (recomenda-se recolher).</td></tr>
+                    <tr><td>Ordem e silêncio</td><td>Ambiente adequado, sem interferências ou colas.</td></tr>
+                    <tr><td>Registrar ocorrências</td><td>Anotar fraudes, atrasos, problemas e reportar ao ponto focal da URE.</td></tr>
+                    <tr><td>Controle do tempo</td><td>Avisar os candidatos sobre o tempo restante.</td></tr>
+                    <tr><td>Posicionamento favorável</td><td>Ficar ao fundo da sala observando os monitores.</td></tr>
+                    <tr><td>Organização da sala</td><td>Visão ampla dos monitores dos estudantes.</td></tr>
+                </tbody>
+            </table>
+            <div class="aviso">
+                🚨 O estudante que desrespeitar as regras deve ser alertado e, em última instância, convidado a se retirar (não finaliza a prova) – desclassificado via Diário de Classe (apontar ausência).
+            </div>
+            <p>✅ Em caso de queda de energia/internet, <strong>aumentar o tempo de prova</strong> conforme necessidade.</p>
+        </section>
+
+        <!-- Boas práticas -->
+        <section>
+            <h2>✨ 3. Boas práticas na aplicação</h2>
+            <div class="grid-dicas">
+                <div class="dica-card"><strong>♿ Inclusão</strong><br>Estudantes da educação especial assistidos conforme necessidades, incluindo tempo estendido.</div>
+                <div class="dica-card"><strong>💾 Salvar rascunho</strong><br>Orientar os alunos a “Salvar Rascunho” durante a prova para evitar perda de dados.</div>
+                <div class="dica-card"><strong>✅ Finalizar prova</strong><br>Conferir se cada estudante apertou o botão “FINALIZAR PROVA”.</div>
+                <div class="dica-card"><strong>🚶 Movimentação</strong><br>Circular de forma recorrente entre os alunos.</div>
+                <div class="dica-card"><strong>🌐 Checagem de navegador</strong><br>Conferir se os estudantes estão apenas com a aba da prova aberta.</div>
+            </div>
+        </section>
+
+        <!-- Resolução técnica -->
+        <section>
+            <h2>🛠️ 4. Resolução de problemas técnicos</h2>
+            <h3>🔧 Estudante sem avaliação disponível na Sala do Futuro</h3>
+            <ul style="margin-left: 1.5rem;">
+                <li>✔️ Verificar login (erro comum de digitação).</li>
+                <li>✔️ Conferir data e hora do computador – se desatualizadas, trocar o computador.</li>
+                <li>✔️ Limpar cache do navegador (<kbd style="background:#eee; padding:2px 6px; border-radius:30px;">Ctrl + Shift + Delete</kbd>) ou usar guia anônima.</li>
+                <li>✔️ Lembrar: prova só aberta no turno correspondente.</li>
+            </ul>
+            <h3>⚠️ Escola sem conexão à internet/energia na hora da aplicação</h3>
+            <ol style="margin-left: 1.5rem;">
+                <li>Verificar tablets com chip na própria escola, URE ou escola vizinha.</li>
+                <li>Último caso: celulares podem ser usados <strong>emergencialmente</strong> (uso proibido exceto nesta exceção).</li>
+                <li>Deslocar estudantes para escola vizinha próxima.</li>
+            </ol>
+            <h3>🔍 Protocolo para identificação de cola</h3>
+            <p>O fiscal que perceber tentativa de cola deve informar o estudante no momento. Confirmado o ato: desclassificar marcando <strong>ausência</strong> no Diário de Classe e informar o ponto focal de Olimpíadas da Diretoria de Ensino.</p>
+        </section>
+
+        <!-- Diário de Classe -->
+        <section>
+            <h2>📚 5. Diário de Classe e Enturmação</h2>
+            <p><strong>Responsável:</strong> trio gestor. <strong>Caminho:</strong> Início → Diário de Classe → Olimpíadas de Matemática → Enturmação e Frequência.</p>
+            <div class="card-destaque">
+                <p>🔹 <strong>Funcionalidades da enturmação:</strong><br>
+                a) Apenas alunos que constam terão acesso à prova.<br>
+                b) Libera diário de classe no dia da prova para apontar frequência.</p>
+                <p>📌 A enturmação foi feita automaticamente e constam até 100 estudantes por turma SED. Todos da mesma turma recebem o <strong>mesmo token</strong>, mesmo que estejam em salas diferentes.</p>
+            </div>
+            <h3>📌 Marcação de presença/ausência</h3>
+            <p>No dia da prova, observe a coluna PRESENÇA: clique na caixa ao lado da letra N (ausente) para converter em S = PRESENTE. </p>
+            <div class="horario-card">
+                🟢 S = PRESENTE &nbsp;&nbsp;|&nbsp;&nbsp; 🔴 N = AUSENTE
+            </div>
+        </section>
+
+        <!-- Token -->
+        <section>
+            <h2>🔐 6. Uso do Token para abertura de prova</h2>
+            <p>Token como recurso de segurança da OMASP. Pode ser gerado tanto pela <strong>Sala do Futuro</strong> quanto pelo <strong>Gerenciador</strong>.</p>
+            <div class="token-box">
+                📎 Confira o material: “Como gerar um Token” → SALA DO FUTURO - COMO GERAR UM TOKEN .pptx
+            </div>
+            <p style="margin-top: 0.6rem;"><em>Importante:</em> o token deve ser fornecido aos estudantes antes do início da prova. Garanta que todos tenham o token correto da sua turma.</p>
+        </section>
+
+        <!-- Alunos transferidos -->
+        <section>
+            <h2>🔄 7. Alunos Transferidos e Token</h2>
+            <div class="aviso">
+                ❓ “Um estudante veio transferido de outra escola para realizar a prova na minha turma, o que fazer?”
+            </div>
+            <p>A OMASP utiliza token de aplicação. Se o aluno já estava enturmado na escola de origem, é necessário:</p>
+            <ul style="margin-left: 1.5rem;">
+                <li>✅ Comunicar com a escola antiga para que o trio gestor ou PROATI informe qual é o <strong>token de acesso</strong> no momento da prova.</li>
+                <li>✅ Caso contrário, o aluno não conseguirá abrir a prova na Sala do Futuro.</li>
+            </ul>
+            <p><strong>Nota importante:</strong> O estudante só realiza a prova na data/turno programado, portanto o contato deve ser o mais rápido possível.</p>
+        </section>
+
+        <!-- Material de apoio -->
+        <section>
+            <h2>🎥 8. Material de Apoio</h2>
+            <p>Assista ao vídeo oficial no YouTube para esclarecer dúvidas sobre o regulamento:</p>
+            <div style="background: #f2f4fc; padding: 0.7rem 1.3rem; border-radius: 48px; display: inline-block; margin: 0.5rem 0;">
+                📺 <strong>“OMASP – Regulamento da Olimpíada”</strong><br>
+                <a href="https://www.youtube.com/watch?v=vqgo-ZAN-As" target="_blank" class="botao-link" style="margin-top: 6px;">🔗 Acessar vídeo no YouTube</a>
+            </div>
+            <p style="margin-top: 1rem;">Todo o guia está alinhado ao regulamento oficial. Mantenha o foco na aplicação organizada e respeitando os prazos.</p>
+        </section>
+
+        <!-- Bloco final de excelência -->
+        <div style="background: linear-gradient(115deg, #f0f4fe, #ffffff); border-radius: 28px; padding: 1.5rem; margin: 2rem 0 0; border-left: 5px solid #d32f2f;">
+            <h3 style="margin-top: 0; border-bottom: none; display: flex; gap: 10px;">🏆 Agora você está pronto para realizar a melhor aplicação da OMASP possível!</h3>
+            <p>✔️ Respeite horários e datas • ✔️ Enturmação em dia • ✔️ Token gerenciado • ✔️ Fiscal atento e inclusivo • ✔️ Boas provas!</p>
+            <p style="font-weight: 500; margin-top: 10px;">✨ Olimpíada de Matemática — Excelência e compromisso com os alunos da rede paulista.</p>
+            <p style="font-size: 1.1rem; text-align: right; margin-top: 1rem; color: #0a2f6c; font-weight: 600;">Muito Obrigado(a)! 🙌</p>
+        </div>
+
+        <footer>
+            <p>Guia de Aplicação OMASP 2026<br>
+           </p>
+            <p>🔗 <a href="#" style="color:#d32f2f;">www.omasp.sp.gov.br</a>  | <a href="https://drive.google.com/file/d/1gDQLoeFgH70NxZ4casG3pola5UGJl8v2/view?usp=drive_link">Guia aplicação PDF</a></p>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
